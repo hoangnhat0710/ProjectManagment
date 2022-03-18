@@ -29,11 +29,11 @@ public class Department {
 
     @ManyToMany
     @JoinTable(
-            name = "department_user",
+            name = "department_team",
             joinColumns = @JoinColumn(name = "department_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
+            inverseJoinColumns = @JoinColumn(name = "team_id")
     )
-    private List<User> users = new ArrayList<>();
+    private List<Team> teams = new ArrayList<>();
 
 
 

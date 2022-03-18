@@ -1,4 +1,5 @@
 package com.example.demo.model.entity;
+
 import lombok.Data;
 import javax.persistence.*;
 import javax.persistence.Entity;
@@ -6,10 +7,11 @@ import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Entity
-@Table(name = "users")
+@Table(name = "section")
 @Data
-public class User {
+public class Section{
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
@@ -17,14 +19,11 @@ public class User {
     @Column
     private String name;
 
-    @Column
-    private String address;
+    @ManyToOne
+    @JoinColumn(name = "project_id")
+    private Project project;
 
-    @Column
-    private String phone;
-
-    @ManyToMany(mappedBy = "users")
-    private List<Team> teams = new ArrayList<>();
-
+    @OneToMany
+    private List<Task> tasks = new ArrayList<>();
 
 }

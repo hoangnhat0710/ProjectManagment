@@ -38,8 +38,13 @@ public class Task{
     @Column
     private String priority;
 
-    @Column
-    private int stage;
+    @ManyToOne
+    @JoinColumn(name = "project_id")
+    private Project project;
+
+    @ManyToOne()
+    @JoinColumn(name = "section_id")
+    private Section  section;
 
     @Column(name = "job_description")
     private String jobDescription;
@@ -56,14 +61,6 @@ public class Task{
 
     @OneToMany
     private List<Comment> comments = new ArrayList<>();
-
-
-
-
-
-
-
-
 
 
 }

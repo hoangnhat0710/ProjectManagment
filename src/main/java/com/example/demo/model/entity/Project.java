@@ -18,8 +18,14 @@ public class Project {
     @Column
     private String name;
 
+    @Column
+    private boolean enable;
+
     @OneToMany
     private List<Task> tasks = new ArrayList<>();
+
+    @OneToMany
+    private List<Section> sections = new ArrayList<>();
 
     @ManyToMany(mappedBy = "projects")
     private List<Department> departments = new ArrayList<>();
